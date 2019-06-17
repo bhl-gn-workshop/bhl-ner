@@ -6,8 +6,6 @@ import grpc
 import protob_pb2
 import protob_pb2_grpc as bhl_grpc
 import math
-from visualization import Visualization
-
 
 #integration with GRPC
 class gRPCClient():
