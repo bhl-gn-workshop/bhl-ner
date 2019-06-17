@@ -22,17 +22,27 @@ class gRPCClient():
     def pages(self):
         return self.stub.Pages(protob_pb2.PagesOpt(title_ids = [1, 2], with_text = True))
 
-def main():
+def process():
+    array = []
     client = gRPCClient()
     version = client.version().value
-    print(version)
+    # print(version)
     for page in client.pages():
         #print(page.text)
         for name in page.names:
-            print(name.value)
+            array.append(name.value)
+    return(array)
+
+#def main():
+#    client = gRPCClient()
+#    version = client.version().value
+    # print(version)
+#    for page in client.pages():
+        #print(page.text)
+#        for name in page.names:
+#            print(name.value)
     #res = client.query_stream(queryPages(page_count, number_of_pages))
     
-
     
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#    main()
